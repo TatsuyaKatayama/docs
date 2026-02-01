@@ -1,0 +1,27 @@
+
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f0f0f0; }
+    .container { max-width: 800px; margin: 20px auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .message-row { display: flex; margin-bottom: 15px; align-items: flex-start; }
+    .message-row.from-User-agent { justify-content: flex-end; } /* ユーザーのメッセージは右寄せ */
+    .message-row:not(.from-User-agent) { justify-content: flex-start; } /* その他のメッセージは左寄せ */
+    .agent-icon { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; margin-right: 10px; flex-shrink: 0; }
+    .message-row.from-User-agent .agent-icon { margin-right: 0; margin-left: 10px; }
+    .message-content { display: flex; flex-direction: column; max-width: 70%; }
+    .agent-name { font-weight: bold; font-size: 0.9em; margin-bottom: 3px; }
+    .message-bubble { padding: 10px 15px; border-radius: 18px; line-height: 1.4; word-wrap: break-word; }
+    .message-info { font-size: 0.75em; color: #888; margin-top: 3px; text-align: right; }
+    .message-row:not(.from-User-agent) .message-info { text-align: left; }
+    .timestamp { font-size: 0.7em; color: #aaa; margin-left: 10px; }
+    
+.message-row.from-DesignManager-agent { justify-content: flex-start; }
+.message-row.from-DesignManager-agent .message-bubble { background-color: #f2a6a6; color: #000000; }
+.message-row.from-DesignManager-agent .agent-name { color: #000000; }
+.message-row.from-OptAgent-agent { justify-content: flex-start; }
+.message-row.from-OptAgent-agent .message-bubble { background-color: #a6f2a6; color: #000000; }
+.message-row.from-OptAgent-agent .agent-name { color: #000000; }
+.message-row.from-User-agent { justify-content: flex-end; }
+.message-row.from-User-agent .message-bubble { background-color: #3498DB; color: #000000; }
+.message-row.from-User-agent .agent-name { color: #000000; }
+.message-row.from-ocFoamer-agent { justify-content: flex-start; }
+.message-row.from-ocFoamer-agent .message-bubble { background-color: #a6a6f2; color: #000000; }
+.message-row.from-ocFoamer-agent .agent-name { color: #000000; }

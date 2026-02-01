@@ -1,0 +1,886 @@
+/* Blue and White Theme for Marp */
+/* @theme ss2025 */
+
+/* Blue Theme for Marp */
+/* Theme setup */
+:root {
+    --main-blue: #3498db;
+    --dark-blue: #2e90d0;
+    --text-color: #2c3e50;
+    --background: white;
+    --font-size: 24px;
+    /* ベースフォントサイズをここで設定 */
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.crosshair {
+    cursor: crosshair;
+}
+
+.zoom-in {
+    cursor: zoom-in;
+}
+
+.zoom-out {
+    cursor: zoom-out;
+}
+
+.help {
+    cursor: help;
+}
+
+
+.cursor-svg {
+    cursor: url("../.styles/red_circle.svg"), auto;
+}
+
+
+code,
+code * {
+    font-family: "Monaco", "Courier New", monospace !important;
+    background-color: #f7fbff;
+}
+
+/* 方法2: heightを直接指定 */
+.empty-line::after {
+    content: '';
+    display: block;
+    height: 1em;
+    /* 好みの高さに調整可能 */
+}
+
+/* Global Styles */
+section {
+    background-color: var(--background);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    padding: 40px;
+    line-height: 1.0;
+    justify-content: flex-start;
+    /* コンテンツ上揃え */
+    align-items: flex-start;
+    /* コンテンツ上揃え */
+    font-size: var(--font-size);
+    /* ここで直接ベースフォントサイズを指定 */
+    flex-direction: column;
+    /* 子要素を縦に並べる */
+    transition: all 0.3s ease-in-out;
+    /*cursor: url("../.styles/red_circle.svg"), auto;*/
+}
+
+/* 最初のスライドではページ番号を非表示 */
+section[data-marpit-pagination="1"]::after {
+    display: none;
+}
+
+/* ダークテーマ対応 */
+section.invert::after {
+    color: #ccc;
+}
+
+/* Secret Mark Style */
+section.secret::before {
+    content: "Secret(秘)";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    padding: 4px 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+
+/* Footer Style */
+footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    color: #666;
+    font-size: 0.8em;
+    text-align: center;
+    margin: auto;
+}
+
+/* license Style */
+section.cc-by::before {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    width: 88px;
+    height: 31px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 4px;
+    opacity: 0.8;
+    background-image: url('https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+section.cc-by-sa::before {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    width: 88px;
+    height: 31px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 4px;
+    opacity: 0.8;
+    background-image: url('https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+section.cc-by-nd::before {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    width: 88px;
+    height: 31px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 4px;
+    opacity: 0.8;
+    background-image: url('https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nd.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+section.cc-by-nc::before {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    width: 88px;
+    height: 31px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 4px;
+    opacity: 0.8;
+    background-image: url('https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+section.cc-by-nc-sa::before {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    width: 88px;
+    height: 31px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 4px;
+    opacity: 0.8;
+    background-image: url('https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+header {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.8em;
+    margin-top: 2.2em;
+    text-align: right;
+}
+
+/* タイトルスライドでは非表示 */
+section.title-slide.secret::before {
+    display: none;
+}
+
+section.title-slice.footer::before {
+    display: none;
+}
+
+/* Modern Title Slide */
+section.title-slide footer {
+    display: none;
+}
+
+section.title-slice.header::before {
+    display: none;
+}
+
+/* Modern Title Slide */
+section.title-slide header {
+    display: none;
+}
+
+section.title-slide h1 {
+    color: white;
+    border-bottom: 4px solid var(--main-blue);
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 0.1em;
+    position: relative;
+    /* 上下中央に配置 */
+    padding: 0;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    width: 100%;
+    margin-top: 3.5em;
+}
+
+section.title-slide {
+    /* より落ち着いたグラデーション背景 */
+    background: linear-gradient(135deg, #1a4c7c 0%, #0a2744 100%);
+    color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+}
+
+
+.subtitle {
+    font-size: 1.8em;
+    color: var(--background);
+    /* より明るい色に変更 */
+    text-align: center;
+    font-weight: 500;
+    margin-top: 0.1em;
+}
+
+.conference {
+    font-size: 1.6em;
+    color: var(--background);
+    /* より明るい色に変更 */
+    font-weight: 500;
+}
+
+.date {
+    font-size: 1.6em;
+    margin-top: 1.2em;
+    color: var(--background);
+    /* より明るい色に変更 */
+}
+
+.presenter {
+    font-size: 1.6em;
+    color: var(--background);
+    /* 白色に変更 */
+    border-top: 4px solid var(--main-blue);
+    padding-top: 0.2em;
+    margin-top: 1.0em;
+    text-align: center;
+    font-weight: 500;
+}
+
+.affiliation {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    color: var(--background);
+    /* より明るい色に変更 */
+}
+
+.accent-bar {
+    width: 50px;
+    height: 4px;
+    margin-top: 0.3em;
+    background-color: #4d9fff;
+    /* アクセントカラーを変更 */
+    margin: em 0;
+    border-radius: 2px;
+}
+
+
+section.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.header-container h1 {
+    margin: 0;
+    flex: 1;
+    /* タイトルが利用可能なスペースを取る */
+}
+
+.title-textbox {
+    background-color: #f0f7ff;
+    border: 2px solid var(--main-blue);
+    border-radius: 4px;
+    padding: 4px 12px;
+    margin-left: 20px;
+    font-size: 0.9em;
+    color: var(--dark-blue);
+    white-space: nowrap;
+    /* テキストを改行させない */
+}
+
+/* Headers with adjusted sizes */
+h1 {
+    color: var(--main-blue);
+    border-bottom: 4px solid var(--main-blue);
+    padding-bottom: 1px;
+    /* 4pxから2pxに減少 */
+    margin-bottom: 0.1em;
+    /* 下部のマージンを追加して調整 */
+    font-size: 1.6em;
+    line-height: 1.0;
+    margin-top: 0.1em;
+    width: 100%;
+}
+
+section.title h1 {
+    color: var(--background);
+    border-bottom: none;
+}
+
+h2 {
+    color: var(--dark-blue);
+    font-size: 1.4em;
+    line-height: 1.0;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    /* 上部スペースを制御 */
+}
+
+h3 {
+    color: var(--dark-blue);
+    font-size: 1.2em;
+    line-height: 1.1;
+}
+
+/* Content Blocks */
+.content-box {
+    background-color: #f7fbff;
+    border-left: 5px solid var(--main-blue);
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Content Blocks */
+.content-box2 {
+    background-color: #f7fbff;
+    border-left: 5px solid var(--dark-blue);
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.highlight-box {
+    background-color: var(--main-blue);
+    color: var(--background);
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+
+/* Lists */
+ul,
+ol {
+    margin-left: 30px;
+    line-height: 1.1;
+}
+
+li {
+    margin: 8px 0;
+    line-height: 1.1;
+}
+
+/* Code Blocks */
+pre {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--main-blue);
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+code {
+    font-family: 'Consolas', monospace;
+    color: var(--dark-blue);
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+
+th {
+    background-color: var(--main-blue);
+    color: var(--background);
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    border: 1px solid #bdc3c7;
+    padding: 12px;
+}
+
+tr:nth-child(even) {
+    background-color: #f7fbff;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 5px solid var(--main-blue);
+    margin: 20px 0;
+    padding-left: 20px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* 前の部分は省略... */
+
+/* Two Column Layout */
+.columns {
+    display: grid;
+    /* flexからgridに変更 */
+    grid-template-columns: 1fr 1fr;
+    /* 2列に分割 */
+    gap: 40px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* 60:40の場合 */
+.columns-60-40 {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    gap: 40px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* 40:60の場合 */
+.columns-40-60 {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    gap: 40px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.column {
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.column-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.column img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* フェードイン効果 */
+section[data-transition="fade"] {
+    opacity: 0;
+}
+
+section[data-transition="fade"].active {
+    opacity: 1;
+}
+
+/* スライドイン（右から） */
+section[data-transition="slide"] {
+    transform: translateX(50px);
+    opacity: 0;
+}
+
+section[data-transition="slide"].active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* ズームイン */
+section[data-transition="zoom"] {
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+section[data-transition="zoom"].active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* ブルーシフト - テーマカラーを活かした遷移 */
+section[data-transition="blue-shift"] {
+    transform: translateY(20px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(52, 152, 219, 0);
+}
+
+section[data-transition="blue-shift"].active {
+    transform: translateY(0);
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.1);
+}
+
+
+/* ターミナル風入力ブロック */
+.terminal-input {
+    background: #0d1117;
+    border: 2px solid #30363d;
+    border-radius: 8px;
+    padding: 0;
+    margin: 10px 0;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+    overflow: auto;
+    max-height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 単一行コマンド用 */
+.terminal-input.single-line {
+    padding: 15px;
+    color: #7ee787;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.terminal-input.single-line::before {
+    content: "$ ";
+    color: #7ee787;
+    font-weight: bold;
+}
+
+.terminal-input.single-line code {
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    padding: 0;
+}
+
+/* 複数行コマンド用 */
+.terminal-input.multi-line {
+    padding: 0;
+}
+
+.terminal-input.multi-line .command-line {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 15px;
+    border-bottom: 1px solid rgba(48, 54, 61, 0.3);
+    min-height: 1.5em;
+}
+
+.terminal-input.multi-line .command-line:last-child {
+    border-bottom: none;
+}
+
+.terminal-input.multi-line .prompt {
+    display: flex;
+    color: #7ee787;
+    font-weight: bold;
+    margin-right: 8px;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.terminal-input.multi-line .command {
+    color: #7ee787;
+    flex: 1;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+
+.terminal-input.multi-line .output {
+    background: #161b22;
+    padding: 15px;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    color: #f0f6fc;
+    overflow: auto;
+    word-break: break-all;
+    white-space: pre-wrap;
+    user-select: none;
+    min-height: 1.0em;
+}
+
+
+.terminal-input.multi-line .command-line:hover {
+    background: rgba(48, 54, 61, 0.2);
+}
+
+/* コメント行用 */
+.terminal-input.multi-line .comment-line {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 15px;
+    border-bottom: 1px solid rgba(48, 54, 61, 0.3);
+    min-height: 1.0em;
+    background: rgba(139, 148, 158, 0.1);
+    color: #8b949e;
+    font-style: italic;
+}
+
+.terminal-input.multi-line .comment-line:last-child {
+    border-bottom: none;
+}
+
+.terminal-input.multi-line .comment {
+    color: #8b949e;
+    font-style: italic;
+    flex: 1;
+    white-space: pre-wrap;
+}
+
+/* ターミナル風出力ブロック */
+.terminal-output {
+    background: #161b22;
+    border: 2px solid #30363d;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    color: #f0f6fc;
+    overflow: auto;
+    max-height: 300px;
+    word-break: break-all;
+    white-space: pre-wrap;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.terminal-output code {
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    padding: 0;
+}
+
+/* ファイルコードブロック */
+.code-file {
+    background: #0d1117;
+    border: 2px solid #30363d;
+    border-radius: 8px;
+    margin: 10px 0;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.code-file-header {
+    background: #21262d;
+    padding: 8px 15px;
+    border-bottom: 1px solid #30363d;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #f0f6fc;
+}
+
+.code-file-content {
+    padding: 0;
+    overflow: auto;
+    max-height: 400px;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    background: #0d1117;
+}
+
+.code-file-content pre {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.code-file-content .line {
+    display: flex;
+    min-height: 1.5em;
+}
+
+.code-file-content .line-number {
+    background: #161b22;
+    color: #7d8590;
+    border-right: 1px solid #30363d;
+    padding: 0 12px;
+    text-align: right;
+    font-size: 12px;
+    user-select: none;
+    width: 50px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.code-file-content .line-content {
+    padding: 0 15px;
+    flex: 1;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* Python シンタックスハイライト */
+.python .keyword {
+    color: #ff7b72;
+    font-weight: bold;
+}
+
+.python .string {
+    color: #a5d6ff;
+}
+
+.python .comment {
+    color: #b0bbc8;
+    font-style: italic;
+}
+
+.python .number {
+    color: #79c0ff;
+}
+
+.python .function {
+    color: #d2a8ff;
+}
+
+.python .decorator {
+    color: #ffa657;
+}
+
+.python .builtin {
+    color: #79c0ff;
+}
+
+.python .operator {
+    color: #ff7b72;
+}
+
+.python .variable {
+    color: #ffa657;
+}
+
+/* Bash シンタックスハイライト */
+.bash .command {
+    color: #7ee787;
+    font-weight: bold;
+}
+
+.bash .option {
+    color: #79c0ff;
+}
+
+.bash .string {
+    color: #a5d6ff;
+}
+
+.bash .comment {
+    color: #8b949e;
+    font-style: italic;
+}
+
+.bash .variable {
+    color: #ffa657;
+}
+
+.bash .operator {
+    color: #ff7b72;
+}
+
+.bash .path {
+    color: #79c0ff;
+}
+
+/* C++ シンタックスハイライト */
+.cpp .keyword {
+    color: #ff7b72;
+    font-weight: bold;
+}
+
+.cpp .string {
+    color: #a5d6ff;
+}
+
+.cpp .comment {
+    color: #8b949e;
+    font-style: italic;
+}
+
+.cpp .number {
+    color: #79c0ff;
+}
+
+.cpp .function {
+    color: #d2a8ff;
+}
+
+.cpp .type {
+    color: #7ee787;
+}
+
+.cpp .preprocessor {
+    color: #ffa657;
+}
+
+.cpp .operator {
+    color: #ff7b72;
+}
+
+.cpp .namespace {
+    color: #ffa657;
+}
+
+/* スクロールバーのスタイリング（ダーク版） */
+.terminal-input::-webkit-scrollbar,
+.terminal-output::-webkit-scrollbar,
+.code-file-content::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.terminal-input::-webkit-scrollbar-track,
+.terminal-output::-webkit-scrollbar-track,
+.code-file-content::-webkit-scrollbar-track {
+    background: #21262d;
+    border-radius: 4px;
+}
+
+.terminal-input::-webkit-scrollbar-thumb,
+.terminal-output::-webkit-scrollbar-thumb,
+.code-file-content::-webkit-scrollbar-thumb {
+    background: #484f58;
+    border-radius: 4px;
+}
+
+.terminal-input::-webkit-scrollbar-thumb:hover,
+.terminal-output::-webkit-scrollbar-thumb:hover,
+.code-file-content::-webkit-scrollbar-thumb:hover {
+    background: #656c76;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+
+    .terminal-input,
+    .terminal-output,
+    .code-file-content {
+        font-size: 0.75em;
+    }
+}
