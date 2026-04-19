@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task Avatar AI PRスライド</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #111;
+      color: #f5f5f5;
+      touch-action: manipulation;
+    }
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #333 0, #111 55%);
+      position: relative;
+    }
+    .slide {
+      width: 90vw;
+      height: 80vh;
+      border-radius: 16px;
+      padding: 32px;
+      box-sizing: border-box;
+      background: rgba(10, 10, 10, 0.9);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+      display: none;
+      overflow-y: auto;
+    }
+    .slide.active {
+      display: block;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+    p, ul {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    .tagline {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+    .footer {
+      position: absolute;
+      bottom: 16px;
+      right: 24px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+    .hint {
+      position: absolute;
+      bottom: 16px;
+      left: 24px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .highlight {
+      color: #4fd1c5;
+      font-weight: 600;
+    }
+    .code {
+      font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+      background: #1b1b1b;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .tap-left, .tap-right {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 10;
+    }
+    .tap-left { left: 0; }
+    .tap-right { right: 0; }
+  </style>
+</head>
+<body>
+  <div class="deck">
+    <div class="tap-left"></div>
+    <div class="tap-right"></div>
+
+    <!-- Slide 1 -->
+    <section class="slide active">
+      <h1>Task Avatar AI</h1>
+      <p class="tagline">音声 × アバター × LLM。  
+      人間らしい対話のための新しいインターフェース。</p>
+      <p>
+        AIは急速に進化しているが、  
+        <span class="highlight">“人間の話し方” を理解できているわけではない。</span>  
+        Task Avatar AI は、音声マルチモーダル時代を見据えた  
+        次世代の対話インターフェースです。
+      </p>
+      <p class="footer">1 / 10</p>
+      <p class="hint">タップで進む・戻る</p>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide">
+      <h2>背景：テキストUIの限界</h2>
+      <p>人間のコミュニケーションはテキストだけでは成立しない。</p>
+      <ul>
+        <li>声のトーン</li>
+        <li>表情</li>
+        <li>間（ポーズ）</li>
+        <li>キャラクター性</li>
+      </ul>
+      <p>
+        これらが意味の大部分を担っている。  
+        テキストだけでAIに伝えるのは、  
+        <span class="highlight">情報の80%を捨てているのと同じ。</span>
+      </p>
+      <p class="footer">2 / 10</p>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide">
+      <h2>現状：LLMは音声を“理解”していない</h2>
+      <p>
+        今の LLM は音声を直接理解しているわけではない。  
+        Web Speech API などで <span class="highlight">音声 → テキスト</span> に変換しているだけ。
+      </p>
+      <ul>
+        <li>声のトーンは失われる</li>
+        <li>感情は失われる</li>
+        <li>間（ポーズ）は失われる</li>
+      </ul>
+      <p>
+        つまり、AIは “言葉の中身” しか受け取れていない。
+      </p>
+      <p class="footer">3 / 10</p>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide">
+      <h2>将来：LLMは音声を直接理解する</h2>
+      <p>
+        近い将来、LLMは音声をテキスト化せずに  
+        <span class="highlight">直接理解する時代</span>が来る。
+      </p>
+      <ul>
+        <li>声のトーンを理解</li>
+        <li>感情を理解</li>
+        <li>話し方の癖を理解</li>
+        <li>映像・表情も統合的に理解</li>
+      </ul>
+      <p>
+        しかし、その未来に向けて必要なのは  
+        <span class="highlight">“人間らしい入力を引き出す UI”</span> である。
+      </p>
+      <p class="footer">4 / 10</p>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide">
+      <h2>アバターは入力の質を劇的に改善する</h2>
+      <ul>
+        <li>表情 → 丁寧に説明しようとする</li>
+        <li>キャラ性 → 文体が安定する</li>
+        <li>声 → 感情や意図が自然に乗る</li>
+        <li>視線 → 話す順序が整理される</li>
+      </ul>
+      <p>
+        アバターは、  
+        <span class="highlight">ユーザーの入力を構造化するインターフェース</span>。
+      </p>
+      <p class="footer">5 / 10</p>
+    </section>
+
+    <!-- Slide 6 -->
+    <section class="slide">
+      <h2>なぜ今なのか（技術的背景）</h2>
+      <p>2024〜2025年で、必要な技術がすべて揃った。</p>
+      <ul>
+        <li>ブラウザで動く高品質アバター（WebGPU / VRM）</li>
+        <li>高速な音声認識（Web Speech API）</li>
+        <li>高性能 LLM（Gemini / GPT）</li>
+        <li>ローカルTTS（VOICEVOX）</li>
+      </ul>
+      <p>
+        これらが統合可能になったことで、  
+        <span class="highlight">“人間らしい対話AI” がブラウザだけで実現できる時代</span>になった。
+      </p>
+      <p class="footer">6 / 10</p>
+    </section>
+
+    <!-- Slide 7 -->
+    <section class="slide">
+      <h2>Task Avatar AI の価値</h2>
+      <p>Task Avatar AI は、AIの弱点をUI側で解決する。</p>
+      <ul>
+        <li>アバターが入力を誘導</li>
+        <li>LLMが理解</li>
+        <li>アバターが返答</li>
+        <li>すべてブラウザで完結</li>
+      </ul>
+      <p>
+        これは単なるUIではなく、  
+        <span class="highlight">音声マルチモーダル時代の“入口”となる技術。</span>
+      </p>
+      <p class="footer">7 / 10</p>
+    </section>
+
+    <!-- Slide 8 -->
+    <section class="slide">
+      <h2>構成技術</h2>
+      <ul>
+        <li>Vite / JS / virtual-avatar SDK</li>
+        <li>VRM / VRMA モデル</li>
+        <li>Web Speech API</li>
+        <li>Gemini 2.5 Flash Lite</li>
+        <li>VOICEVOX（Docker）</li>
+        <li>Node.js / Express / SQLite</li>
+      </ul>
+      <p class="footer">8 / 10</p>
+    </section>
+
+    <!-- Slide 9 -->
+    <section class="slide">
+      <h2>ユースケース</h2>
+      <ul>
+        <li>社内ヘルプデスク</li>
+        <li>教育・学習支援</li>
+        <li>オンボーディング</li>
+        <li>高齢者向けUI</li>
+      </ul>
+      <p class="footer">9 / 10</p>
+    </section>
+
+    <!-- Slide 10 -->
+    <section class="slide">
+      <h2>結論</h2>
+      <p>
+        Task Avatar AI は、  
+        <span class="highlight">AIが人間を理解できるようにするためのプロジェクト。</span>
+      </p>
+      <ul>
+        <li>アバターは飾りではない</li>
+        <li>アバターは入力品質を変える</li>
+        <li>入力品質はAIの性能を決める</li>
+        <li>音声マルチモーダル時代に不可欠なUI</li>
+      </ul>
+      <p>
+        GitHub：<br />
+        <span class="code">https://github.com/TatsuyaKatayama/task-avatar-ai</span>
+      </p>
+      <p class="footer">10 / 10</p>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      let index = 0;
+
+      function showSlide(i) {
+        slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      }
+
+      function next() {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+      }
+
+      function prev() {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide(index);
+      }
+
+      document.querySelector('.tap-right').addEventListener('click', next);
+      document.querySelector('.tap-left').addEventListener('click', prev);
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
+    })();
+  </script>
+</body>
+</html>
